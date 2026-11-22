@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>給阿灰的一封信 💌</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC','Microsoft JhengHei',sans-serif;color:#684654;background:#fff5f7}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 20% 15%,#ffe0e9,transparent 36%),radial-gradient(circle at 80% 85%,#ffe4ec,transparent 32%),#fff8fa}.card{width:min(100%,490px);background:#ffffffde;border:1px solid #f6dce4;border-radius:25px;padding:clamp(25px,6vw,43px);box-shadow:0 14px 50px #bd79952b;text-align:center}.heart{font-size:50px;margin-bottom:12px;animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px)}}h1{font-size:clamp(23px,5vw,30px);color:#bd5379;margin:10px 0 17px}p{line-height:2;letter-spacing:.025em}button,.link{font:inherit;border:0;border-radius:999px;padding:13px 23px;cursor:pointer;transition:transform .2s,background .2s;text-decoration:none;display:inline-block}#yes,.link{background:#d85f8a;color:white;box-shadow:0 5px 16px #d85f8a44;font-weight:700}#no{background:#f9e9ef;color:#a96a80}#actions{display:flex;gap:14px;justify-content:center;align-items:center;min-height:110px;flex-wrap:wrap}#hint{font-size:13px;color:#a67b8c;min-height:24px}.letter{text-align:left;white-space:normal;font-size:15px}.letter p{margin:0 0 16px}.sign{text-align:right;color:#b85d7d;font-weight:700;margin-top:18px}.account{background:#fff1f5;border-radius:14px;padding:15px;margin:25px 0;text-align:left;font-size:14px}.account strong{color:#b45378}.small{font-size:12px;color:#a67b8c;line-height:1.7}.hidden{display:none}.link{margin-top:5px}button:focus-visible,.link:focus-visible{outline:3px solid #b43b6c;outline-offset:3px}@media(prefers-reduced-motion:reduce){.heart{animation:none}button{transition:none}}
+</style>
+</head>
+<body>
+<main class="card">
+<section id="invite">
+<div class="heart" aria-hidden="true">💌</div>
+<h1>阿灰，有個小驚喜想給妳</h1>
+<p>我偷偷做了一個小網站。<br>妳願意看看嗎？</p>
+<div id="actions"><button id="yes" type="button">要 ❤️</button><button id="no" type="button">不要 🙈</button></div>
+<div id="hint" aria-live="polite"></div>
+</section>
+<section id="letter" class="hidden">
+<div class="heart" aria-hidden="true">💗</div>
+<h1>給阿灰的一封信</h1>
+<div class="letter">
+<p>阿灰，</p>
+<p>我很抱歉，昨天我不應該出現在那裡。我也很抱歉，不應該讓妳獨自承擔聊天的風險。</p>
+<p>所以我昨天熬夜做了這個聊天網站。妳直接用網頁開啟就可以了，不會有通知，用完就可以關掉。</p>
+<p>其他功能我還在陸續完善，希望妳會喜歡。</p>
+<p>我會繼續努力站在這裡陪妳、等妳。<br>妳需要我的時候，我都在。</p>
+<div class="sign">By ESP</div>
+</div>
+<div class="account"><strong>Only Us 聊天室</strong><br>登入帳號：Rachel<br>登入密碼：四位數字，27號技師的生日</div>
+<a id="enter-chat" class="link" href="https://two-person-chat-83o5.onrender.com/">進入我們的小世界 ❤️</a>
+<p class="small">這個聊天室不會主動發送通知，用完關閉網頁就好。</p>
+</section>
+</main>
+<script>
+const CHAT_URL='https://two-person-chat-83o5.onrender.com/';
+const invite=document.getElementById('invite'),letter=document.getElementById('letter'),yes=document.getElementById('yes'),no=document.getElementById('no'),hint=document.getElementById('hint');let count=0;
+function openLetter(){invite.classList.add('hidden');letter.classList.remove('hidden');window.scrollTo(0,0)}
+yes.addEventListener('click',openLetter);
+no.addEventListener('click',()=>{count++;if(count>=5){openLetter();return}yes.style.transform=`scale(${1+count*.22})`;hint.textContent=['真的不要嗎？🥺','再想一下嘛 💕','我很用心準備的耶 💗','最後再問妳一次 ❤️'][count-1]});
+</script>
+</body></html>
